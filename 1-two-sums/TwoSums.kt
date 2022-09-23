@@ -11,7 +11,7 @@ fun main() {
 // 6-3 = 3 //saves the 3 as key and the current index, because has no entry as a key
 // 6-2 = 4 // saves 4 and current index, because has no 4 entry as a key
 // 6-4 = 2 // has 4 as key
-// so return the current index and the 4 entry index
+// so return the current index(1) and the 4 key entry index(2)
     
 class Solution {
     fun twoSum(nums: IntArray, target: Int): IntArray {
