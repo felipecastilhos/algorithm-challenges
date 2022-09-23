@@ -7,7 +7,7 @@ You may assume that each input would have exactly one solution, and you may not 
 
 You can return the answer in any order
 
-Difficulty: Easy
+*Difficulty: Easy*
 
 
 ## Example 1:
@@ -34,7 +34,8 @@ Output: [0,1]
 2 <= nums.length <= 104
 -109 <= nums[i] <= 109
 -109 <= target <= 109
-Only one valid answer exists.
+
+*Only one valid answer exists.*
  
 
-### Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
+*Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?*
