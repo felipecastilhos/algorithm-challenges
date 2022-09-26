@@ -1,6 +1,13 @@
 # algorithm-challenges
 Challenges I resolved to practice algorithms in Kotlin. 
 
+<div id="header" align="left">
+  <img src="https://media.giphy.com/media/v9yQthKTSIPwzQU020/giphy.gif" width="30%" height="auto"/>
+</div>
+
+---
+
+
 
 ## Challenges list
 
