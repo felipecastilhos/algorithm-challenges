@@ -1,32 +1,33 @@
-# Length of the longest substring
-The original challenge description can be found [here](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+# Reverse Integer
+The original challenge description can be found [here](https://leetcode.com/problems/reverse-integer/)
 
-Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
 
-The overall run time complexity should be O(log (m+n)).
+*Assume the environment does not allow you to store 64-bit integers (signed or unsigned).*
 
 *Difficulty: Medium*
 
 
 ## Example 1:
 ```
-Input: nums1 = [1,3], nums2 = [2]
-Output: 2.00000
-Explanation: merged array = [1,2,3] and median is 2.
+Input: x = 123
+Output: 321
 ```
 
 ## Example 2:
 ```
-Input: nums1 = [1,2], nums2 = [3,4]
-Output: 2.50000
-Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
+Input: x = -123
+Output: -321
+```
+
+## Example 3:
+```
+Input: x = 120
+Output: 21
 ```
 
 ## Constraints:
 
-- nums1.length == m
-- nums2.length == n
-- 0 <= m <= 1000
-- 0 <= n <= 1000
-- 1 <= m + n <= 2000
-- -106 <= nums1[i], nums2[i] <= 106
+- 1 <= s.length <= 1000
+- s consists of English letters (lower-case and upper-case), ',' and '.'.
+- 1 <= numRows <= 1000
