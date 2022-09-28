@@ -1,32 +1,45 @@
-# Length of the longest substring
-The original challenge description can be found [here](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+# Zigzag Conversion
+The original challenge description can be found [here](https://leetcode.com/problems/zigzag-conversion/)
 
-Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
 
-The overall run time complexity should be O(log (m+n)).
+P   A   H   N
+A P L S I I G
+Y   I   R
+And then read line by line: "PAHNAPLSIIGYIR"
+
+Write the code that will take a string and make this conversion given a number of rows:
+
+string convert(string s, int numRows);
 
 *Difficulty: Medium*
 
 
 ## Example 1:
 ```
-Input: nums1 = [1,3], nums2 = [2]
-Output: 2.00000
-Explanation: merged array = [1,2,3] and median is 2.
+Input: s = "PAYPALISHIRING", numRows = 3
+Output: "PAHNAPLSIIGYIR"
 ```
 
 ## Example 2:
 ```
-Input: nums1 = [1,2], nums2 = [3,4]
-Output: 2.50000
-Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
+Input: s = "PAYPALISHIRING", numRows = 4
+Output: "PINALSIGYAHRPI"
+Explanation:
+P     I    N
+A   L S  I G
+Y A   H R
+P     I
+```
+
+## Example 3:
+```
+Input: s = "A", numRows = 1
+Output: "A"
 ```
 
 ## Constraints:
 
-- nums1.length == m
-- nums2.length == n
-- 0 <= m <= 1000
-- 0 <= n <= 1000
-- 1 <= m + n <= 2000
-- -106 <= nums1[i], nums2[i] <= 106
+- 1 <= s.length <= 1000
+- s consists of English letters (lower-case and upper-case), ',' and '.'.
+- 1 <= numRows <= 1000
