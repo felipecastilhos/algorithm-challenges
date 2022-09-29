@@ -63,7 +63,7 @@ fun testCase2(solution: Solution) {
     val nums2 = intArrayOf(3,4)
     val solutionOutput = solution.findMedianSortedArrays(nums1, nums2)
     assertTest(
-        testName = "Test 1",
+        testName = "Test 2",
         expectedOutput = 2.5,
         solutionOutput = solutionOutput
     )

@@ -10,6 +10,9 @@ fun main() {
     testCase7(solution)
     testCase8(solution)
     testCase9(solution)
+    testCase10(solution)
+    testCase11(solution)
+    testCase12(solution)
 }
 
 class Solution {
@@ -25,13 +28,14 @@ class Solution {
                 sIndex++
                 continue 
             } 
+
             if(ch == '-' || ch == '+') {
-                if(isNegative == null && lastDigit == null) {
+                if(isNegative == null || (lastDigit == null || lastDigit.isDigit()) ) {
                     isNegative = ch == '-'
                     lastDigit = ch
                     sIndex++
                     continue
-                } else return 0
+                } else return result.asResult(isNegative)
             }
             else if(ch.isDigit()){
                 lastDigit = ch
@@ -41,8 +45,10 @@ class Solution {
             sIndex++
         }
 
-        if(result >= Int.MAX_VALUE && !(isNegative ?: false) ) return Int.MAX_VALUE
-        else if(isNegative ?: false && -result <= Int.MIN_VALUE ) return Int.MIN_VALUE
+        val negativeNotNull = isNegative ?: false
+        if(result >= Int.MAX_VALUE && !negativeNotNull ) return Int.MAX_VALUE
+        if(result <= Int.MIN_VALUE && !negativeNotNull) return Int.MAX_VALUE
+        if(negativeNotNull ?: false && -result <= Int.MIN_VALUE ) return Int.MIN_VALUE
         
         return result.asResult(isNegative)
     }
@@ -149,6 +155,8 @@ fun testCase8(solution: Solution) {
     val expectedOutput = 0
     val solutionOutput = solution.myAtoi(input)
 
+    println("$expectedOutput $solutionOutput")
+
     assertTest(
         testName = "Teste 8",
         expectedOutput = expectedOutput,
@@ -161,10 +169,48 @@ fun testCase9(solution: Solution) {
     val expectedOutput = 0
     val solutionOutput = solution.myAtoi(input)
 
+    assertTest(
+        testName = "Teste 9",
+        expectedOutput = expectedOutput,
+        solutionOutput = solutionOutput
+    )  
+}
+
+
+fun testCase10(solution: Solution) {
+    val input = "9223372036854775808"
+    val expectedOutput = 2147483647
+    val solutionOutput = solution.myAtoi(input)
+
+    assertTest(
+        testName = "Teste 10",
+        expectedOutput = expectedOutput,
+        solutionOutput = solutionOutput
+    )  
+}
+
+fun testCase11(solution: Solution) {
+    val input = "-91283472332"
+    val expectedOutput = -2147483648
+    val solutionOutput = solution.myAtoi(input)
+
     println("$expectedOutput $solutionOutput")
 
     assertTest(
-        testName = "Teste 9",
+        testName = "Teste 10",
+        expectedOutput = expectedOutput,
+        solutionOutput = solutionOutput
+    )  
+}
+
+fun testCase12(solution: Solution) {
+    val input = "-5-"
+    val expectedOutput = -5
+    val solutionOutput = solution.myAtoi(input)
+
+    println("$expectedOutput $solutionOutput")
+    assertTest(
+        testName = "Teste 12",
         expectedOutput = expectedOutput,
         solutionOutput = solutionOutput
     )  

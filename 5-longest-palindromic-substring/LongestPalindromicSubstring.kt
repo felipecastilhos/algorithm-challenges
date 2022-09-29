@@ -1,6 +1,7 @@
 fun main() { 
-    val solution = Solution()
     testCase1(::longestPalindrome)
+    testCase2(::longestPalindrome)
+    testCase3(::longestPalindrome, true)
 }
 
 /**
@@ -21,27 +22,56 @@ fun main() {
 *Output: "bb"
 *
  */
-fun longestPalindrome(s: String): String {
-        var longestSize = 0
-        var currentSize = 0
+fun longestPalindrome(s: String, debug: Boolean = false): String {
+    var n = s.length
+    var i = 0
 
+    if(n == 1) return s
+    val str = s.reversed()
 
-        for(startIndex in 0..s.length-1) {
-            for(endIndex in s.length-1 downto 0) {
-                    if(s.get[startIndex] == s.get[endIndex]) {
-                       currentSize++
-                    }
-            }
+    if(str == s) return s
 
-            longestSize = max(longestSize, currentSize)
+    var minStart = 0
+    var maxLength = 1
+
+    while(i < n) {
+        if(n - i <= maxLength / 2) break
+        var j = i
+        var k = i
+
+        while(k < n-1 && s[k+1] == s[k]) ++k
+
+        i = k+1
+        while(k < n-1 && j > 0 && s[k + 1] == s[j - 1]) { 
+            ++k
+            --j
         }
+
+        val newLength = k - j + 1
+
+        if(newLength > maxLength) {
+            minStart = j 
+            maxLength = newLength
+        }
+    }
+
+    return s.substring(minStart, maxLength)
+
 }
 
-fun testCase1(solution: (String) -> String) {
+fun logDebug(message: String, debug: Boolean, newLine: Boolean = true) {
+    if(debug) {
+        if(newLine) println(message)
+        else print(message)
+    }
+}
+
+fun testCase1(solution: (String, Boolean) -> String, debug: Boolean = false) {
     val input = "babad"
-    val expectedOutput = "aba"
-    val solutionOutput = solution.invoke(input)
-    println(solutionOutput)
+    val expectedOutput = "bab"
+    val solutionOutput = solution.invoke(input, debug)
+    println("$expectedOutput $solutionOutput")
+
     assertTest(
         testName = "Teste 1",
         expectedOutput = expectedOutput, 
@@ -49,7 +79,32 @@ fun testCase1(solution: (String) -> String) {
     )
 }
 
-fun assertTest(testName: String, expectedOutput: Double, solutionOutput: Double) { 
+fun testCase2(solution: (String, Boolean) -> String, debug: Boolean = false) {
+    val input = "cbbd"
+    val expectedOutput = "bb"
+    val solutionOutput = solution.invoke(input, debug)
+    println("$expectedOutput $solutionOutput")
+    assertTest(
+        testName = "Teste 2",
+        expectedOutput = expectedOutput, 
+        solutionOutput =  solutionOutput
+    )
+}
+
+fun testCase3(solution: (String, Boolean) -> String, debug: Boolean = false) {
+    val input = "aacabdkacaa"
+    val expectedOutput = "aca"
+    val solutionOutput = solution.invoke(input, debug)
+    println("$expectedOutput $solutionOutput")
+    assertTest(
+        testName = "Teste 3",
+        expectedOutput = expectedOutput, 
+        solutionOutput =  solutionOutput
+    )
+}
+
+
+fun assertTest(testName: String, expectedOutput: String, solutionOutput: String) { 
     if(expectedOutput == solutionOutput) printPassingMessage(testName) else printFailingMessage(testName)
 }
 
