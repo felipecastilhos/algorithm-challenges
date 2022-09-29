@@ -19,3 +19,4 @@ Challenges I resolved to practice algorithms in Kotlin.
 - [x] [Challenge 6: Zigzag Conversation](6-zigzag-conversation/)
 - [x] [Challenge 7: Reverse Integer](7-reverse-integer/)
 - [ ] [Challenge 8: String To Integer](8-string-to-integer/)
+- [ ] [Challenge 9: Palindrome Number](9-palindrome-number/)
